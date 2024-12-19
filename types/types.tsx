@@ -1,6 +1,6 @@
 
 export type ProductData = {
-    imageUrl: string | undefined ,
+    imageUrl?: string | undefined ,
     title: string | null,
     sku: string | null,
     price: string | null,
@@ -8,4 +8,4 @@ export type ProductData = {
     stock: string | null
 }
 
-export type ProductArray = ProductData[]
+// export type ProductArray = (ProductData | undefined)[]

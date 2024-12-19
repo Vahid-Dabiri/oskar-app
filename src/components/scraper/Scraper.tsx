@@ -7,6 +7,7 @@ const PriceListItem = ({ imageUrl, title, sku, price, seller, stock }: ProductDa
     const router = useRouter()
     useEffect(() => {
         const refreshInterval = setInterval(() => {
+            console.log('reRender')
             router.refresh()
         }, 60000)
 
