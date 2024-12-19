@@ -1,9 +1,8 @@
-import Link from "next/link";
 
 export default function Home() {
   return (
-    <header className="px-10 py-5 fixed top-0 w-full bg-white">
-      <Link href='/scraper' className="text-black font-bold text-lg p-10">Amazon Price Project</Link>
-    </header>
+    <div className="w-full h-svh flex justify-center items-center text-4xl tracking-widest font-bold">
+      ⭕ Oskar Project ⭕
+    </div>
   );
 }

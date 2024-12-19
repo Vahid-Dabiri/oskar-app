@@ -1,4 +1,4 @@
-import PriceListItem from '@/components/scraper/Scraper'
+import PriceListItem from '@/components/templates/Scraper'
 import { ProductData } from '@/types/types'
 import getURLData from "@/utils/getURLData"
 import { Suspense } from 'react'
@@ -6,6 +6,7 @@ import Loading from './loading'
 import axios from 'axios'
 import ProductModel from "@/models/ProductModel"
 import connectToDB from '@/configs/db'
+import Link from 'next/link'
 
 
 export default async function Scraper() {
@@ -21,9 +22,10 @@ export default async function Scraper() {
   )
 
   return (
-    <>
+    <div className='p-10 pt-14'>
       <h1 className='text-5xl font-normal tracking-wider text-center p-10'>AMAZON PRICE LIST PROJECT</h1>
-      <div className='w-full p-10 pt-9'>
+      <Link href='./add-product' className='border border-blue-400 rounded-lg px-5 py-3 hover:bg-gray-800'>Add New Product</Link>
+      <div className='w-full pt-9'>
         <Suspense fallback={<Loading />}>
           <table className='my-0 mx-auto'>
             <thead>
@@ -46,6 +48,6 @@ export default async function Scraper() {
           </table>
         </Suspense>
       </div>
-    </>
+    </div>
   )
 }
