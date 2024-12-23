@@ -86,6 +86,7 @@ export async function POST(req: requestType) {
 
 export async function GET() {
     try {
+        connectToDB()
         const products = await ProductModel.find()
         return Response.json(
             { message: "Get Products Successfully 👍", data: products },

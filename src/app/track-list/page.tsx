@@ -41,7 +41,7 @@ export default async function Scraper() {
                 <tbody>
                   {
                     productsData.map((data, index) => (
-                      data.seller?.trim().toLowerCase() !== 'runbazaar' ? <PriceListItem key={index} {...data} /> : ''
+                      data?.seller?.trim().toLowerCase() !== 'runbazaar' ? <PriceListItem key={index} {...data} /> : ''
                     ))
                   }
                 </tbody>
@@ -58,7 +58,7 @@ export default async function Scraper() {
                 <tbody>
                   {
                     productsData.map((data, index) => (
-                      data.stock?.trim().toLowerCase() === "currently unavailable" ?
+                      data?.stock?.trim().toLowerCase() === "currently unavailable" ?
                        <PriceListItem key={index} {...data} /> : ''
                     ))
                   }
