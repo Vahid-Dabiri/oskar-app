@@ -4,9 +4,7 @@ import axios from 'axios'
 import React, { FormEvent, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 
-type Props = {}
-
-function AddProductForm({ }: Props) {
+function AddProductForm() {
     const [productTitle, setProductTitle] = useState('')
     const [productURL, setProductURL] = useState('')
     const [productAsin, setProductAsin] = useState('')

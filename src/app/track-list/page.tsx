@@ -34,7 +34,7 @@ export default async function Scraper() {
       <div className='w-full pt-9'>
         {
           <div className='pb-14'>
-            <h3 className='text-center font-medium tracking-wider text-xl pb-4 text-red-500'>Lose BuyBux Products</h3>
+            <h3 className='text-center font-medium tracking-wider text-xl pb-4 text-red-500'>Lose BuyBox Products</h3>
             <Suspense fallback={<Loading />}>
               <table className='my-0 mx-auto'>
                 <TableHeader headerTitles={['Image', 'Title', 'ASIN', 'Seller', 'Price', 'Stock']} />
@@ -42,6 +42,24 @@ export default async function Scraper() {
                   {
                     productsData.map((data, index) => (
                       data.seller?.trim().toLowerCase() !== 'runbazaar' ? <PriceListItem key={index} {...data} /> : ''
+                    ))
+                  }
+                </tbody>
+              </table>
+            </Suspense>
+          </div>
+        }
+        {
+          <div className='pb-14'>
+            <h3 className='text-center font-medium tracking-wider text-xl pb-4 text-red-500'>Unavailable Products</h3>
+            <Suspense fallback={<Loading />}>
+              <table className='my-0 mx-auto'>
+                <TableHeader headerTitles={['Image', 'Title', 'ASIN', 'Seller', 'Price', 'Stock']} />
+                <tbody>
+                  {
+                    productsData.map((data, index) => (
+                      data.stock?.trim().toLowerCase() === "currently unavailable" ?
+                       <PriceListItem key={index} {...data} /> : ''
                     ))
                   }
                 </tbody>

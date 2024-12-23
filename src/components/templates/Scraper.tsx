@@ -30,7 +30,7 @@ const PriceListItem = ({ imageUrl, title, sku, price, seller, stock }: ProductDa
                 <span>AED</span>
             </td>
             {
-                stock?.trim().toLowerCase() === 'in stock' ?
+                stock?.trim().toLowerCase() === 'in stock' || stock?.trim().toLowerCase().includes('only')?
                     (<td className='table-col font-bold bg-green-700 text-white'>{stock}</td>) :
                     (<td className='table-col font-bold bg-red-700 text-white'>{stock}</td>)
             }
