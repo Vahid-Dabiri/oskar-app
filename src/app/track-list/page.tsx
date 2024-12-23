@@ -15,6 +15,10 @@ export default async function Scraper() {
   connectToDB()
 
   const productsURLArray = await ProductModel.find({}, 'url date -_id')
+  // const response = await fetch('http://localhost:3000/api/amazonProduct')
+  // const productsURLObj = await response.json()
+  // const productsURLArray = productsURLObj.data
+    
   productsURLArray.sort((a: any, b: any) => {
     let c: any = new Date(a.date);
     let d: any = new Date(b.date);
@@ -34,7 +38,7 @@ export default async function Scraper() {
       <div className='w-full pt-9'>
         {
           <div className='pb-14'>
-            <h3 className='text-center font-medium tracking-wider text-xl pb-4 text-red-500'>Lose BuyBox Products</h3>
+            <h3 className='text-center font-medium tracking-wider text-xl pb-4 text-red-500'>Lose BuyBox</h3>
             <Suspense fallback={<Loading />}>
               <table className='my-0 mx-auto'>
                 <TableHeader headerTitles={['Image', 'Title', 'ASIN', 'Seller', 'Price', 'Stock']} />
@@ -59,7 +63,7 @@ export default async function Scraper() {
                   {
                     productsData.map((data, index) => (
                       data?.stock?.trim().toLowerCase() === "currently unavailable" ?
-                       <PriceListItem key={index} {...data} /> : ''
+                        <PriceListItem key={index} {...data} /> : ''
                     ))
                   }
                 </tbody>
